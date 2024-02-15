@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.9.3
+    volumes:
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./logs:/usr/share/filebeat/logs
+    depends_on:
+      - elasticsearch
+volumes:
+  elasticsearch-data:
