@@ -3,15 +3,10 @@ filebeat.inputs:
   enabled: true
   paths:
     - /usr/share/filebeat/logs/*.json
+  json.keys_under_root: true
+  json.add_error_key: true
+  json.message_key: log
 
-processors:
-  - decode_json_fields:
-      fields: ["message"]
-      target: ""
-  - add_fields:
-      target: ""
-      fields:
-        log_type: "my_app"
 
 output.elasticsearch:
   hosts: ["elasticsearch:9200"]

@@ -15,5 +15,13 @@ services:
       - ./logs:/usr/share/filebeat/logs
     depends_on:
       - elasticsearch
+  python:
+    image: python:3.10
+    volumes:
+      - ./data:/data
+    container_name: python
+
+
 volumes:
   elasticsearch-data:
+
