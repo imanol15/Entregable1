@@ -1,6 +1,7 @@
 # Integración de Filebeat y Elasticsearch en Docker
 
-Autor: Imanol Anda Garcia
+Autor: Imanol Anda Garcia.
+
 Este proyecto demuestra la configuración y uso de Filebeat para enviar logs a Elasticsearch dentro de un entorno Docker. Se utiliza Filebeat para monitorear y analizar logs generados por un script de Python.
 
 ## Explicación de los pasos seguidos
